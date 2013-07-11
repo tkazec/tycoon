@@ -1,0 +1,15 @@
+{
+	"name": "money",
+	"version": "0.0.0",
+	"dependencies": {
+		"ff": "~0.1.3",
+		"jade": "~0.32.0",
+		"less": "~1.4.1",
+		"moment": "~2.1.0"
+	},
+	"engines": {
+		"node": "~0.10.12",
+		"npm": "~1.2.32"
+	},
+	"private": true
+}
