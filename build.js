@@ -10,8 +10,8 @@ var monthly = require(process.argv[4]);
 var data = [];
 
 var f = ff(function () {
-	var now = moment();
-	var cur = moment().subtract("months", 1);
+	var now = moment().startOf("day");
+	var cur = now.clone().subtract("months", 1);
 	
 	var cash = 0;
 	var flow = monthly.reduce(function (p, c) {
@@ -27,7 +27,7 @@ var f = ff(function () {
 		}, 0);
 		
 		data.push({
-			date: cur.format("ddd M/D"),
+			date: cur.toJSON(),
 			cash: cash += flow + change,
 			flow: flow + change
 		});
