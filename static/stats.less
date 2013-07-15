@@ -1,0 +1,41 @@
+@import "bootstrap/bootstrap";
+
+@baseFontFamily: "Marcellus SC", serif;
+@headingsFontWeight: 400;
+
+#line {
+	fill: none;
+	stroke: url("#line-gradient");
+	stroke-linecap: round;
+	stroke-width: 2.5px;
+}
+
+#axis-x,
+#axis-x-2,
+#axis-y {
+	font-size: 10px;
+	
+	path,
+	line {
+		fill: none;
+		shape-rendering: crispEdges;
+		stroke: #000;
+	}
+}
+
+#axis-x-2 path,
+#axis-x-2 line {
+	stroke: none;
+}
+
+#grid-x,
+#grid-y {
+	path {
+		stroke: none;
+	}
+	
+	line {
+		shape-rendering: crispEdges;
+		stroke: @grayLighter;
+	}
+}
