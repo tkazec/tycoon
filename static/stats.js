@@ -21,13 +21,13 @@ var xScale = d3.time.scale()
 	.domain([data[0].date, data[data.length -1].date]);
 
 var yScale = d3.scale.linear()
-	.nice()
 	.range([0, svgSize.height])
 	.domain([d3.max(data, function (d) {
 		return Math.max(d.cash, d.flow);
 	}), d3.min(data, function (d) {
 		return Math.min(d.cash, d.flow);
-	})]);
+	})])
+	.nice();
 
 var xAxis = d3.svg.axis()
 	.scale(xScale)
@@ -85,6 +85,15 @@ svg3 = svg3.append("g")
 	.attr("transform", "translate(" + svgSize.marginLeft + "," + svgSize.marginTop + ")");
 
 svg3.append("g")
+	.attr("id", "grid-x")
+	.attr("transform", "translate(0," + svgSize.height + ")")
+	.call(xGrid);
+
+svg3.append("g")
+	.attr("id", "grid-y")
+	.call(yGrid);
+
+svg3.append("g")
 	.attr("id", "axis-x")
 	.attr("transform", "translate(0," + svgSize.height + ")")
 	.call(xAxis);
@@ -97,15 +106,6 @@ svg3.append("g")
 svg3.append("g")
 	.attr("id", "axis-y")
 	.call(yAxis);
-
-svg3.append("g")
-	.attr("id", "grid-x")
-	.attr("transform", "translate(0," + svgSize.height + ")")
-	.call(xGrid);
-
-svg3.append("g")
-	.attr("id", "grid-y")
-	.call(yGrid);
 
 svg3.append("path")
 	.datum(data)
