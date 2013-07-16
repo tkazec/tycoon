@@ -21,6 +21,7 @@ var xScale = d3.time.scale()
 	.domain([data[0].date, data[data.length -1].date]);
 
 var yScale = d3.scale.linear()
+	.nice()
 	.range([0, svgSize.height])
 	.domain([d3.max(data, function (d) {
 		return Math.max(d.cash, d.flow);
